@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31606.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4DevsAPIClone", "4DevsAPIClone\4DevsAPIClone.csproj", "{4FA0ACEF-95B8-4880-8869-F2190980812C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4FA0ACEF-95B8-4880-8869-F2190980812C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FA0ACEF-95B8-4880-8869-F2190980812C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FA0ACEF-95B8-4880-8869-F2190980812C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FA0ACEF-95B8-4880-8869-F2190980812C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EEE74308-D73F-4111-B3FA-A86B4F7A2861}
+	EndGlobalSection
+EndGlobal
