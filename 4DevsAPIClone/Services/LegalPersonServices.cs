@@ -1,4 +1,5 @@
 ﻿using _4DevsAPIClone.Models.ControllerModels;
+using _4DevsAPIClone.Services.Interfaces;
 using System.Text.RegularExpressions;
 
 namespace _4DevsAPIClone.Services;

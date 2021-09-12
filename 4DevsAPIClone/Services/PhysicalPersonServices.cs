@@ -1,5 +1,6 @@
 ﻿
 using _4DevsAPIClone.Models.ControllerModels;
+using _4DevsAPIClone.Services.Interfaces;
 using System.Text.RegularExpressions;
 
 namespace _4DevsAPIClone.Services;
@@ -31,20 +32,31 @@ public class PhysicalPersonServices : IPhysicalPersonServices
         return cpfs;
     }
 
-    public bool ValidateCPF(string cpf)
+    public IEnumerable<bool> ValidateCPF(IEnumerable<string> cpfs)
     {
+        List<bool> validations = new List<bool>();
+
         string pattern = "[^0-9]";
-        var formated = Regex.Replace(cpf, pattern, "");
+        
+        foreach(var cpf in cpfs)
+        {
+            var formated = Regex.Replace(cpf, pattern, "");
 
-        if (formated.Length != 11)
-            return false;
+            if (formated.Length != 11)
+                validations.Add(false);
 
-        var digits = GenerateDigits(formated);
+            var digits = GenerateDigits(formated);
 
-        if (digits == formated.Substring(9, 2))
-            return true;
+            if (digits == formated.Substring(9, 2))
+            {
+                validations.Add(true);
+                continue;
+            }
 
-        return false;
+            validations.Add(true);
+        }
+
+        return validations;
     }
 
     private static string GenerateDigits(string cpf)

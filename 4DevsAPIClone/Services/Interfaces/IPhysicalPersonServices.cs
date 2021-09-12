@@ -1,8 +1,8 @@
 ﻿using _4DevsAPIClone.Models.ControllerModels;
 
-namespace _4DevsAPIClone.Services;
+namespace _4DevsAPIClone.Services.Interfaces;
 public interface IPhysicalPersonServices
 {
     IEnumerable<string> GenerateCPF(CNPJSettings cnpjSettings);
-    bool ValidateCPF(string cpf);
+    IEnumerable<bool> ValidateCPF(IEnumerable<string> cpfs);
 }
