@@ -40,20 +40,20 @@ public class PhysicalPersonServices : IPhysicalPersonServices
         
         foreach(var cpf in cpfs)
         {
-            cpf = FormatCPF(cpf)
+            var validateCPF = FormatCPF(cpf);
 
-            if (cpf.Length != 11)
+            if (validateCPF.Length != 11)
                 validations.Add(false);
 
-            var digits = GenerateDigits(cpf);
+            var digits = GenerateDigits(validateCPF);
 
-            if (digits == cpf.Substring(9, 2))
+            if (digits == validateCPF.Substring(9, 2))
             {
                 validations.Add(true);
                 continue;
             }
 
-            validations.Add(true);
+            validations.Add(false);
         }
 
         return validations;

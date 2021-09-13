@@ -38,14 +38,14 @@ public class LegalPersonServices : ILegalPersonServices
 
         foreach(var cnpj in cnpjs)
         {
-            cnpj = FormatCNPJ
+            var formatedCNPJ = FormatCNPJ(cnpj);
 
-            if (cnpj.Length != 14)
+            if (formatedCNPJ.Length != 14)
                 validations.Add(false);
 
-            var digits = GenerateDigits(cnpj);
+            var digits = GenerateDigits(formatedCNPJ);
 
-            if (digits == cnpj.Substring(12, 2))
+            if (digits == formatedCNPJ.Substring(12, 2))
             {
                 validations.Add(true);
                 continue;
