@@ -35,18 +35,17 @@ public class LegalPersonServices : ILegalPersonServices
     {
         List<bool> validations = new List<bool>();
 
-        string pattern = "[^0-9]";
 
         foreach(var cnpj in cnpjs)
         {
-            var formated = Regex.Replace(cnpj, pattern, "");
+            cnpj = FormatCNPJ
 
-            if (formated.Length != 14)
+            if (cnpj.Length != 14)
                 validations.Add(false);
 
-            var digits = GenerateDigits(formated);
+            var digits = GenerateDigits(cnpj);
 
-            if (digits == formated.Substring(12, 2))
+            if (digits == cnpj.Substring(12, 2))
             {
                 validations.Add(true);
                 continue;
@@ -83,5 +82,11 @@ public class LegalPersonServices : ILegalPersonServices
         restNum2 = restNum2 < 2 ? 0 : 11 - restNum2;
 
         return $"{restNum1}{restNum2}";
+    }
+
+    private string FormatCNPJ(string cnpj)
+    {
+        string pattern = "[^0-9]";
+        return Regex.Replace(cnpj, pattern, "");
     }
 }

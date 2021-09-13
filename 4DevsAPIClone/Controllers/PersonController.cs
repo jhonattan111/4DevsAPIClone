@@ -28,8 +28,8 @@ public class PersonController : ControllerBase
     public ActionResult<IEnumerable<bool>> ValidateCPF([FromBody] IEnumerable<string> cpfs, [FromServices] IPhysicalPersonServices physicalServices) =>
         physicalServices.ValidateCPF(cpfs).ToList();
 
-    [HttpGet]
-    [Route("generateAdress")]
-    public ActionResult<IEnumerable<Adress>> GenerateAdress([FromBody] AdressSettings, [FromServices] IPersonServices personServices) =>
-        personServices.GenerateAdress();
+    //[HttpGet]
+    //[Route("generateAdress")]
+    //public ActionResult<IEnumerable<Adress>> GenerateAdress([FromBody] AdressSettings, [FromServices] IPersonServices personServices) =>
+    //    personServices.GenerateAdress();
 }

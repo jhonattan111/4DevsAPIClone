@@ -36,18 +36,18 @@ public class PhysicalPersonServices : IPhysicalPersonServices
     {
         List<bool> validations = new List<bool>();
 
-        string pattern = "[^0-9]";
+        
         
         foreach(var cpf in cpfs)
         {
-            var formated = Regex.Replace(cpf, pattern, "");
+            cpf = FormatCPF(cpf)
 
-            if (formated.Length != 11)
+            if (cpf.Length != 11)
                 validations.Add(false);
 
-            var digits = GenerateDigits(formated);
+            var digits = GenerateDigits(cpf);
 
-            if (digits == formated.Substring(9, 2))
+            if (digits == cpf.Substring(9, 2))
             {
                 validations.Add(true);
                 continue;
@@ -83,5 +83,11 @@ public class PhysicalPersonServices : IPhysicalPersonServices
         restNum2 = restNum2 == 10 ? 0 : restNum2;
 
         return $"{restNum1}{restNum2}";
+    }
+
+    private string FormatCPF(string cpf)
+    {
+        string pattern = "[^0-9]";
+        return Regex.Replace(cpf, pattern, "");
     }
 }
