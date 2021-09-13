@@ -1,4 +1,5 @@
-﻿using _4DevsAPIClone.Models.ControllerModels;
+﻿using _4DevsAPIClone.Models;
+using _4DevsAPIClone.Models.ControllerModels;
 using _4DevsAPIClone.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,11 +20,16 @@ public class PersonController : ControllerBase
 
     [HttpGet]
     [Route("generatecpf")]
-    public ActionResult<List<string>> GenerateCPF([FromBody] CNPJSettings cnpjSettings, [FromServices] IPhysicalPersonServices physicalServices) => 
-        physicalServices.GenerateCPF(cnpjSettings).ToList();
+    public ActionResult<List<string>> GenerateCPF([FromBody] CPFSettings cpfSettings, [FromServices] IPhysicalPersonServices physicalServices) => 
+        physicalServices.GenerateCPF(cpfSettings).ToList();
 
     [HttpGet]
     [Route("validatecpf")]
     public ActionResult<IEnumerable<bool>> ValidateCPF([FromBody] IEnumerable<string> cpfs, [FromServices] IPhysicalPersonServices physicalServices) =>
         physicalServices.ValidateCPF(cpfs).ToList();
+
+    [HttpGet]
+    [Route("generateAdress")]
+    public ActionResult<IEnumerable<Adress>> GenerateAdress([FromBody] AdressSettings, [FromServices] IPersonServices personServices) =>
+        personServices.GenerateAdress();
 }

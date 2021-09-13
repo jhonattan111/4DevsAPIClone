@@ -6,11 +6,11 @@ using System.Text.RegularExpressions;
 namespace _4DevsAPIClone.Services;
 public class PhysicalPersonServices : IPhysicalPersonServices
 {
-    public IEnumerable<string> GenerateCPF(CNPJSettings cnpjSettings)
+    public IEnumerable<string> GenerateCPF(CPFSettings cpfSettings)
     {
         List<string> cpfs = new List<string>();
         
-        for(int i = 0; i < cnpjSettings.Quantity; i++)
+        for(int i = 0; i < cpfSettings.Quantity; i++)
         {
             var random = new Random();
             string cpf = string.Empty;
@@ -23,7 +23,7 @@ public class PhysicalPersonServices : IPhysicalPersonServices
 
             cpf += digits;
 
-            if (cnpjSettings.Formated)
+            if (cpfSettings.Formated)
                 cpf = $"{cpf.Substring(0, 3)}.{cpf.Substring(3, 3)}.{cpf.Substring(6, 3)}-{cpf.Substring(9, 2)}";
 
             cpfs.Add(cpf);

@@ -1,4 +1,5 @@
 using _4DevsAPIClone.Services;
+using _4DevsAPIClone.Services.Interfaces;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
