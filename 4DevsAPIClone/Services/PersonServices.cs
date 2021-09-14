@@ -1,45 +1,48 @@
 ﻿using _4DevsAPIClone.Models;
 using _4DevsAPIClone.Models.ControllerModels;
 using _4DevsAPIClone.Services.Interfaces;
+using _4DevsAPIClone.Enums;
 
 namespace _4DevsAPIClone.Services;
-public class PersonServices : IPersonServices
+public class AdressServices : IAdressServices
 {
-    public IEnumerable<Adress> GenerateAdress(AdressSettings adressSettings)
+    public Adress GenerateAdress(AdressSettings adressSettings)
     {
-        List<Adress> adresses = new List<Adress>();
+        string ZipCod = string.Empty;
 
-        for(int i = 0; i < adressSettings.Quantity; i++)
+        switch (adressSettings.State)
         {
-            var random = new Random();
+            case EState.RJ:
+                ZipCod = "1";
+
+            default:
+                ZipCod = "2";
+            //AL,
+            //AP,
+            //AM,
+            //BA,
+            //CE,
+            //DF,
+            //ES,
+            //GO,
+            //MA,
+            //MT,
+            //MS,
+            //MG,
+            //PA,
+            //PB,
+            //PR,
+            //PE,
+            //PI,
+            //RJ,
+            //RN,
+            //RS,
+            //RO,
+            //RR,
+            //SC,
+            //SP,
+            //SE,
+            //TO
         }
-
-        throw new NotImplementedException();
-
-        //public IEnumerable<string> GenerateCNPJ(CPFSettings cpfSettings)
-        //{
-        //    List<string> cnpjs = new List<string>();
-        //
-        //    for (int i = 0; i < cpfSettings.Quantity; i++)
-        //    {
-        //
-        //        var random = new Random();
-        //        string cnpj = string.Empty;
-        //        // 00.000.000/0000-00
-        //        for (int j = 0; j <= 11; j++)
-        //            cnpj = $"{cnpj}{(random.Next(0, 9).ToString())}";
-        //
-        //        string digits = GenerateDigits(cnpj);
-        //
-        //        cnpj += digits;
-        //
-        //        if (cpfSettings.Formated)
-        //            cnpj = $"{cnpj.Substring(0, 2)}.{cnpj.Substring(2, 3)}.{cnpj.Substring(5, 3)}/{cnpj.Substring(8, 4)}-{cnpj.Substring(12, 2)}";
-        //
-        //        cnpjs.Add(cnpj);
-        //    }
-        //
-        //    return cnpjs;
-        //}
     }
 }

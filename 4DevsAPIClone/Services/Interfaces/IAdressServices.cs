@@ -2,7 +2,7 @@
 using _4DevsAPIClone.Models.ControllerModels;
 
 namespace _4DevsAPIClone.Services.Interfaces;
-public interface IPersonServices
+public interface IAdressServices
 {
-    IEnumerable<Adress> GenerateAdress(AdressSettings adressSettings);
+    Adress GenerateAdress(AdressSettings adressSettings);
 }

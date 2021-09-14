@@ -32,4 +32,9 @@ public class PersonController : ControllerBase
     //[Route("generateAdress")]
     //public ActionResult<IEnumerable<Adress>> GenerateAdress([FromBody] AdressSettings, [FromServices] IPersonServices personServices) =>
     //    personServices.GenerateAdress();
+
+    [HttpGet]
+    [Route("generateAdress")]
+    public ActionResult<Adress> GenerateAdress([FromBody] AdressSettings adressSettings, [FromServices] IAdressServices adressServices) =>
+        adressServices.GenerateAdress(adressServices).ToList();
 }

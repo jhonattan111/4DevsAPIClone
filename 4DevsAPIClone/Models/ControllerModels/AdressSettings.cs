@@ -1,6 +1,8 @@
 ﻿
+using _4DevsAPIClone.Enums;
+
 namespace _4DevsAPIClone.Models.ControllerModels;
 public class AdressSettings
 {
-    public int Quantity { get; set; }
+    public EState State { get; set; }
 }
