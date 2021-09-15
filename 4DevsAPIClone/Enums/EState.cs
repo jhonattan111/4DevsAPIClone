@@ -25,7 +25,8 @@ public enum EState
     RO,
     RR,
     SC,
-    SP,
+    SP, //GRANDE SP
+    SI, //SP INTERIOR
     SE,
-    TO
+    TO,
 }

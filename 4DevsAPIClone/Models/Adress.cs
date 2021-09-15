@@ -25,6 +25,10 @@ public class Adress
         District = bairro;
     }
 
+    public Adress()
+    {
+    }
+
     public string ZipCode { get; set; }
     public string Street { get; set; }
     public string State { get; set; }

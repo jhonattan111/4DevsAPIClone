@@ -16,6 +16,7 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddMvc();
 builder.Services.AddTransient<ILegalPersonServices, LegalPersonServices>();
 builder.Services.AddTransient<IPhysicalPersonServices, PhysicalPersonServices>();
+builder.Services.AddTransient<IAdressServices, AdressServices>();
 
 var app = builder.Build();
 

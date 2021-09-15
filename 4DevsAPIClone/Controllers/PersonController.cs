@@ -36,5 +36,5 @@ public class PersonController : ControllerBase
     [HttpGet]
     [Route("generateAdress")]
     public ActionResult<Adress> GenerateAdress([FromBody] AdressSettings adressSettings, [FromServices] IAdressServices adressServices) =>
-        adressServices.GenerateAdress(adressServices).ToList();
+        adressServices.GenerateAdress(adressSettings);
 }
