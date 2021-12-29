@@ -1,4 +1,5 @@
 ﻿using _4DevsAPIClone.Models.ControllerModels;
+using System.Collections.Generic;
 
 namespace _4DevsAPIClone.Services.Interfaces;
 public interface IPhysicalPersonServices

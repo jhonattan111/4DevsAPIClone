@@ -5,6 +5,8 @@ using _4DevsAPIClone.Enums;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using System.Net;
+using System;
+using System.Net.Http;
 
 namespace _4DevsAPIClone.Services;
 public class AdressServices : IAdressServices
@@ -86,12 +88,17 @@ public class AdressServices : IAdressServices
         return new Adress();
     }
 
-    public Adress ConsultZipCode(string zipCode)
+    public async Task<Adress> ConsultZipCode(string zipCode)
     {
         string url = $"https://viacep.com.br/ws/{zipCode}/json/";
-        var a = new HttpClient();
-        var cepAPI = a.GetAsync(url);
+        Adress adress = null;
+        var client = new HttpClient();
+        var cepAPI = await client.GetStringAsync(url);
 
-        return new Adress();
+        //if (cepAPI.IsSStringuccessStatusCode)
+        //{
+        //    adress = await cepStringAPI.Content.ReadAsAsync<Adress>();
+        //}
+        return adress;
     }
 }
